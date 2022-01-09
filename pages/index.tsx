@@ -3,10 +3,9 @@ import Link from 'next/link'
 import Head from 'next/head'
 // import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { postsData } from './posts'
+import { postsData, tagsData } from './data/blog'
 
-import getConfig from 'next/config'
-const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
+import { getLink } from './common'
 
 const Home: NextPage = () => {
   return (
@@ -28,14 +27,30 @@ const Home: NextPage = () => {
           <code className={styles.code}>pages/index.tsx</code>
         </p>
 
-        <ol>
+        <Link href={getLink(`/blog/page/1`)}>
+            <a>Pagination</a>
+        </Link>
+
+        <ol className="content-left col-span-6">
           {postsData.map((post) => (
-            <li key={post.Id}>
+            <li key={`post_${post.Id}`} className='bg-black text-fuchsia-200 m-3 p-3'>
               {/* <Link href={`post/${post.Slug}`} passHref as={`post/${post.Slug}`}> for local dev*/}
               {/* <Link href={`./post/${post.Slug}.html`} passHref as={`./post/${post.Slug}.html`}> for local static, but only works on FF and not Chrome. Same works in gh-pages across browsers though */}
 
-              <Link href={`${publicRuntimeConfig.pagePrefix}/post/${post.Slug}${publicRuntimeConfig.pageSuffix}`}>
+              <Link href={getLink(`/blog/post/${post.Slug}`)}>
                 <a>{post.Title}</a>
+              </Link>
+            </li>
+          ))}
+        </ol>
+        <ol className='align-right col-span-6'>
+          {tagsData.map((tag) => (
+            <li key={`tag_${tag.Slug}`} className='bg-green-500 align-right m-3 p-3 text-white '>
+              {/* <Link href={`post/${post.Slug}`} passHref as={`post/${post.Slug}`}> for local dev*/}
+              {/* <Link href={`./post/${post.Slug}.html`} passHref as={`./post/${post.Slug}.html`}> for local static, but only works on FF and not Chrome. Same works in gh-pages across browsers though */}
+
+              <Link href={getLink(`/blog/tag/${tag.Slug}/page/1`)}>
+                <a>{tag.Title}</a>
               </Link>
             </li>
           ))}

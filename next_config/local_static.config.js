@@ -14,7 +14,8 @@ module.exports = {
     // }
     publicRuntimeConfig: {
       // Will be available on both server and client
-      pagePrefix: '.',
+      basePath: "./index",
+      pagePrefix: '',
       pageSuffix: '.html',
     },
 }
