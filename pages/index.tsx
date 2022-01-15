@@ -22,7 +22,7 @@ const Home: NextPage = () => {
 
   const onDarkModeToggle = () => {
     console.log(isDarkMode, theme)
-    setTheme(theme === 'light' ? 'dark' : 'light')
+    setTheme(theme === 'dark' ? 'light' : 'dark')
   }
 
   return (

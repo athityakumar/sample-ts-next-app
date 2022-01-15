@@ -3,8 +3,8 @@ module.exports = {
     reactStrictMode: true,
     // assetPrefix: "/sample-ts-next-app/_next/static/images/",
     // basePath: "",
-    basePath: '/Users/akumar57/GitHub/sandbox/sample-ts-next-app/out',
-    assetPrefix: '/Users/akumar57/GitHub/sandbox/sample-ts-next-app/out',
+    basePath: '/sample-ts-next-app',
+    assetPrefix: '/sample-ts-next-app/',
     // exportPathMap: function() {
     //   return {
     //     '/sample-ts-next-app': { page: '/' },
