@@ -16,12 +16,12 @@ export const tagsData: Tag[] = [
     {
         Slug: "coding",
         Title: "Coding",
-        Color: "#000"
+        Color: "black"
     },
     {
         Slug: "experience",
         Title: "Experience",
-        Color: "#fff"
+        Color: "indigo-500"
     },
 ]
 
