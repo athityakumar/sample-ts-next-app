@@ -12,6 +12,8 @@ import {useTheme} from 'next-themes'
 
 import DarkModeToggle from "react-dark-mode-toggle";
 
+import { MDXProvider } from '@mdx-js/react'
+
 const Home: NextPage = () => {
   const {theme, setTheme} = useTheme()
   const [isDarkMode, setIsDarkMode] = useState(theme === 'dark');
@@ -63,6 +65,11 @@ const Home: NextPage = () => {
         <Link href={getLink(`/poc/navbar`)}>
                 <a>POC</a>
               </Link>
+
+              <Link href={getLink(`/mui/dark`)}>
+                <a>MUI</a>
+              </Link>
+
 
         <div className="bg-white dark:bg-gray-900 rounded-lg px-6 py-8 ring-1 ring-gray-900/5 shadow-xl">
   <div>
@@ -149,6 +156,9 @@ const Home: NextPage = () => {
         </a>
       </footer>
     </div>
+    <MDXProvider>
+      <main  />
+    </MDXProvider>
     </>
   )
 }
